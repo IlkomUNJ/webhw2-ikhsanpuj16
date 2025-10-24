@@ -1,0 +1,186 @@
+@layout('components/layout/main')
+
+@section('content')
+<div class="container py-5">
+    <div class="row text-center mb-5">
+        <div class="col-12">
+            <h1 class="display-4">Our Products</h1>
+            <p class="lead">Discover our latest collection of fashionable clothing</p>
+        </div>
+    </div>
+    
+    {{-- Categories Section --}}
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-outline-dark active">All</button>
+                <button class="btn btn-outline-dark">Casual Wear</button>
+                <button class="btn btn-outline-dark">Formal Wear</button>
+                <button class="btn btn-outline-dark">Accessories</button>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Filters</h5>
+                    <hr>
+                    <h6>Categories</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="casual">
+                        <label class="form-check-label" for="casual">
+                            Casual Wear
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="formal">
+                        <label class="form-check-label" for="formal">
+                            Formal Wear
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sports">
+                        <label class="form-check-label" for="sports">
+                            Sports Wear
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="accessories">
+                        <label class="form-check-label" for="accessories">
+                            Accessories
+                        </label>
+                    </div>
+                    
+                    <h6 class="mt-4">Price Range</h6>
+                    <input type="range" class="form-range" min="0" max="200" id="priceRange">
+                    <div class="d-flex justify-content-between">
+                        <span>$0</span>
+                        <span>$200</span>
+                    </div>
+
+                    <h6 class="mt-4">Size</h6>
+                    <div class="btn-group mt-2" role="group">
+                        <input type="checkbox" class="btn-check" id="size-s" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="size-s">S</label>
+                        <input type="checkbox" class="btn-check" id="size-m" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="size-m">M</label>
+                        <input type="checkbox" class="btn-check" id="size-l" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="size-l">L</label>
+                        <input type="checkbox" class="btn-check" id="size-xl" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="size-xl">XL</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {{-- Products Grid --}}
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/casual.jpg" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Casual'" alt="Casual Wear">
+                        <div class="card-body">
+                            <h5 class="card-title">Casual Collection</h5>
+                            <p class="card-text">Perfect for everyday wear</p>
+                            <p class="price">$49.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Casual Collection" data-image="/images/casual.jpg" data-price="49.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/jacket.webp" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Jacket'" alt="Elegant Jacket">
+                        <div class="card-body">
+                            <h5 class="card-title">Elegant Jacket</h5>
+                            <p class="card-text">Stay stylish and warm</p>
+                            <p class="price">$89.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Elegant Jacket" data-image="/images/jacket.webp" data-price="89.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/elegent dress.jpeg" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Dress'" alt="Elegant Dress">
+                        <div class="card-body">
+                            <h5 class="card-title">Elegant Dress</h5>
+                            <p class="card-text">Perfect for special occasions</p>
+                            <p class="price">$129.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Elegant Dress" data-image="/images/elegent dress.jpeg" data-price="129.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/banner.jpg" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Sporty'" alt="Sports Collection">
+                        <div class="card-body">
+                            <h5 class="card-title">Sports Collection</h5>
+                            <p class="card-text">Stay active in style</p>
+                            <p class="price">$69.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Sports Collection" data-image="/images/banner.jpg" data-price="69.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/casual.jpg" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Winter'" alt="Winter Collection">
+                        <div class="card-body">
+                            <h5 class="card-title">Winter Collection</h5>
+                            <p class="card-text">Cozy winter essentials</p>
+                            <p class="price">$159.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Winter Collection" data-image="/images/casual.jpg" data-price="159.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card">
+                        <img src="/images/elegent dress.jpeg" class="card-img-top" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x400?text=Evening'" alt="Evening Collection">
+                        <div class="card-body">
+                            <h5 class="card-title">Evening Collection</h5>
+                            <p class="card-text">Stunning evening wear</p>
+                            <p class="price">$199.99</p>
+                            <button class="btn btn-outline-dark w-100 add-wishlist" data-name="Evening Collection" data-image="/images/elegent dress.jpeg" data-price="199.99">Add to Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{-- Pagination --}}
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@end
+
+@section('scripts')
+<script>
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-wishlist')
+    if (!btn) return
+    const name = btn.dataset.name
+    const image = btn.dataset.image
+    const price = btn.dataset.price
+    fetch('/wishlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productName: name, productImage: image, productPrice: price })
+    }).then(r => {
+        if (r.ok) alert('Added to wishlist')
+        else alert('Please login to add to wishlist')
+    }).catch(() => alert('Network error'))
+})
+</script>
+@end

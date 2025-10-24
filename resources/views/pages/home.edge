@@ -1,0 +1,29 @@
+@layout.app({title: "Home"})
+@slot("meta")
+@endslot
+@slot("main")
+  <section id="products">
+    <h2 style="text-align:center; margin-top:30px;">Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+  <img src="/images/casual.jpg" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Casual'" alt="T-Shirt">
+        <h3>Casual T-Shirt</h3>
+        <p>Rp 120.000</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="product-card">
+        <img src="/images/jacket.webp" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Jacket'" alt="Stylish Jacket">
+        <h3>Stylish Jacket</h3>
+        <p>Rp 350.000</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="product-card">
+        <img src="/images/elegent dress.jpeg" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Dress'" alt="Dress">
+        <h3>Elegant Dress</h3>
+        <p>Rp 250.000</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+@endslot
+@end

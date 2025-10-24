@@ -1,0 +1,61 @@
+@layout('components/layout/main')
+
+@section('content')
+<div class="container py-5">
+  <h1 class="mb-4">My Wishlist</h1>
+  <div id="wishlist-items" class="row gy-3">
+    @if(typeof items !== 'undefined' && items.length)
+      @each(item in items)
+      <div class="col-md-4">
+        <div class="card h-100">
+          <img src="{{ item.product_image || '/images/banner.jpg' }}" class="card-img-top" alt="{{ item.product_name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.product_name }}</h5>
+            <p class="card-text">{{ item.product_price ? '$'+item.product_price : '' }}</p>
+            <button class="btn btn-danger btn-sm remove-wishlist" data-id="{{ item.id }}">Remove</button>
+          </div>
+        </div>
+      </div>
+      @endeach
+    @else
+      <div class="col-12">Loading...</div>
+    @endif
+  </div>
+</div>
+@end
+
+@section('scripts')
+<script>
+async function loadWishlist(){
+  const res = await fetch('/api/wishlist')
+  if (!res.ok) {
+    document.getElementById('wishlist-items').innerHTML = '<div class="col-12">Please login to view your wishlist.</div>'
+    return
+  }
+  const items = await res.json()
+  const container = document.getElementById('wishlist-items')
+  if (!items.length) {
+    container.innerHTML = '<div class="col-12">Your wishlist is empty.</div>'
+    return
+  }
+  container.innerHTML = items.map(i => `
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="${i.product_image || '/images/banner.jpg'}" class="card-img-top" alt="${i.product_name}">
+        <div class="card-body">
+          <h5 class="card-title">${i.product_name}</h5>
+          <p class="card-text">${i.product_price ? '$'+i.product_price : ''}</p>
+          <button class="btn btn-danger btn-sm remove-wishlist" data-id="${i.id}">Remove</button>
+        </div>
+      </div>
+    </div>
+  `).join('')
+  document.querySelectorAll('.remove-wishlist').forEach(btn=>btn.addEventListener('click', async e=>{
+    const id = btn.dataset.id
+    const r = await fetch('/api/wishlist/'+id, { method: 'DELETE' })
+    if (r.ok) loadWishlist()
+  }))
+}
+loadWishlist()
+</script>
+@end
